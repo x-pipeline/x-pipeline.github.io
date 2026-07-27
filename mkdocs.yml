@@ -1,0 +1,267 @@
+site_name: X-Pipeline
+site_author: yxc
+
+
+nav:
+  - XPipeline: index.md
+  # - 更新日志: changelog.md
+  - 快速开始: quick_start.md
+
+  # - 安装&配置:  
+  #   - 安装: install.md
+  #   - 基础配置: config.md
+  #   - 详细配置:
+  #     - 配置文件规则: config_file_rule.md
+  #     - presets/config.json: global_config_json.md
+  #     - project/config.json: config_json.md
+  #   - 账户类型: account_info.md
+
+  - 用户手册:
+
+    - 流程管理: user_manual.md
+
+    - 流程:
+
+      - pipeline/index.md
+
+      - 资产流程: pipeline_asset_graph_01.md
+      - 镜头流程: pipeline_shot_graph_01.md
+      - 常见问题: q_and_a.md
+
+
+    - 发布:
+      - publish/index.md
+
+      - 资产发布:
+        - 发布模型: publish_mod.md
+        - 发布绑定: publish_rig.md
+        - 发布毛发: publish_fur.md
+      - 镜头发布:
+        - 动画发布: ' '
+
+    - 组装:
+      - 概述: assembly_shot.md
+
+    # - 常见问题: q_and_a.md
+
+  - 开发&扩展:
+    - dev/index.md
+
+    # - 通用模块:
+    #   - common/index.md
+
+    - 通用模块: common/index.md
+
+    - 项目管理:
+      - master/index.md
+
+      - 自定义菜单: dev_manual.md
+
+      - 插件: dev_plugin.md
+
+    - DCC:
+      - dcc/index.md
+
+      - Maya: maya_dev_manual.md
+
+      - Nuke: nuke_dev_manual.md
+
+      - Houdini: houdini_dev_manual.md
+
+
+  # - 测试: test.md
+
+
+theme:
+  # mkdocs readthedocs material windmill-dark
+  name: material
+  language: 'zh'
+  favicon: 'img/logo_default.ico'
+
+  # logo_white  logo_default
+  # cyan        white
+  logo: 'img/logo_default.png'
+
+  icon:
+    admonition:
+      note: octicons/tag-16
+
+  # 主题颜色
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      # 标题栏颜色
+      primary: black
+      toggle:
+        icon: material/weather-sunny
+        name: 亮色模式
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      # cyan teal white indigo blue brown grey pink purple black lime  
+      primary: white
+      toggle:
+        icon: material/weather-night
+        name: 暗色模式
+
+  # font:
+  #   text: Roboto
+
+  # 导航栏
+  features:
+    - content.code.copy
+
+    - header.autohide
+
+    # - navigation.instant
+    - navigation.tabs
+
+    # 自动展开左侧树型导航栏
+    # - navigation.expand
+    - navigation.path
+
+    - navigation.indexes
+
+    # go to top
+    - navigation.top
+
+    # keep top navigate
+    # - navigation.tabs.sticky
+
+    # 导航行合并到左侧
+    - toc.integrate
+
+    # 左侧无树型、标题粗体
+    - navigation.sections
+
+
+
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - abbr
+  - tables
+  - pymdownx.snippets
+  # - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  - markdown.extensions.attr_list
+
+  - toc:
+      permalink: true  # 网页标签页跳转（快速置顶）
+
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+
+extra_css:
+  # - 'assets/css/custom.css'
+  # - 'assets/css/simpleLightbox.min.css'
+  - 'assets/css/lightbox.min.css'
+  # - 'assets/css/extra.css'
+
+extra_javascript:
+  # - 'jquery.min.js'
+  - 'assets/js/jquery-4.0.0.min.js'
+  # - 'assets/js/custom.js'
+  # - 'assets/js/simpleLightbox.min.js'
+  - 'assets/js/lightbox.min.js'
+
+  # - 'assets/js/simpleLightbox.js'
+  # - 'assets/js/extra.js'
+
+
+use_directory_urls: false
+
+
+plugins:
+  - meta
+  - search:
+      lang:
+        - en
+        - ja
+        - en
+
+      separator: '[\s\-\.]+'
+
+  - offline
+
+  # - material/search:
+  #     enabled: true
+  # 
+  # - social:
+  # 
+  # - social:
+  #   cards_layout_options:
+  #     font_family: Noto Sans SC
+
+
+  - social:
+      cards_layout: default
+      enable: false
+      cards: false
+      cards_layout_options:
+        title: My custom title
+
+  #     cards_layout_options:
+  #       background_color: "#ff1493"
+
+#   - mkdocs-video
+
+
+# 右下显示联系方式
+extra:
+    social:
+        - icon: fontawesome/brands/weixin
+          link: https://qq.com
+          name: weixin
+
+        - icon: octicons/mark-github-24
+          link: https://github.com/x-pipeline
+
+        - icon: fontawesome/brands/discord
+          link: https://discord.com/invite/VQjSZaeJmf
+        - icon: fontawesome/brands/x-twitter
+          link: https://x.com/fastapi
+        - icon: fontawesome/brands/bluesky
+          link: https://bsky.app/profile/fastapi.tiangolo.com
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/company/fastapi
+
+# 版权声明
+copyright: Copyright &copy; 2021-2026 xpipeline.cn
