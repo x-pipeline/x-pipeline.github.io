@@ -430,65 +430,6 @@
   
   
   
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    快速开始
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    快速开始
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
       <a href="quick_start.html" class="md-nav__link">
         
@@ -506,14 +447,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -720,116 +653,6 @@
     <span class="md-ellipsis">
       
         镜头流程图
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        角色在原点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        无材质
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        无毛发
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        模型呲掉
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#abc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        没有abc文件
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        毛发在原点
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        毛发呲了
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        无相机
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        少角色
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        为什么使用流程系统
       
     </span>
   </a>
@@ -1800,8 +1623,10 @@
 
 
 
-<h2 id="_1"><img alt="🎥" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f3a5.svg" title=":movie_camera:" /> 镜头流程图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TD
+  <h1>镜头流程</h1>
+
+<h2 id="_1">镜头流程图<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
 
 %% 1.1 资产组
 subgraph asset[资产asset]
@@ -1986,37 +1811,6 @@ efx -.-&gt; cmp
 <hr />
 <p><a href="pipeline_summary.html">流程概述</a> </p>
 <p><a href="pipeline_asset_graph_01.html">资产流程</a> </p>
-<h2 id="_2">角色在原点<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>角色在坐标原点，可能是资产大纲组或者模型名字（rig文件和tex文件模型名字不一样）不正确，需要检查材质(tex)文件或者绑定(rig)文件的大组</p>
-<h2 id="_3">无材质<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>无材质、默认材质显示，可能没有材质文件、或者材质文件命名不正确， 无法更加资产命名规则找到正确的材质文件</p>
-<h2 id="_4">无毛发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>可能没有毛发文件、或者毛发文件命名不正确</p>
-<h2 id="_5">模型呲掉<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>或者部门分模型位置不一致， 绑定模型和材质模型拓扑不一致</p>
-<h2 id="abc">没有abc文件<a class="headerlink" href="#abc" title="Permanent link">&para;</a></h2>
-<p>大纲组名字不正确（abc模型组名）</p>
-<h2 id="_6">毛发在原点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<ul>
-<li>无生长面绑定文件</li>
-</ul>
-<h2 id="_7">毛发呲了<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<ul>
-<li>无解算和脑袋穿插等</li>
-</ul>
-<p>检查是否有引导线绑定文件</p>
-<ul>
-<li>有解算</li>
-</ul>
-<h2 id="_8">无相机<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p>动画文件相机命名不正确</p>
-<h2 id="_9">少角色<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<p>动画引用无空间名</p>
-<p>引用资产路径不正确（非publish下标准路径）</p>
-<p>资产被转导入</p>
-<h1 id="_10">为什么使用流程系统<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
-<p>公司拥有模型师、动画师、灯光、合成等等， 全流程项目总是磕磕绊绊、无法顺畅的合作、或者就不敢承接全流程电影项目</p>
-<p>此时需要专业的流程系统</p>
 
 
 
