@@ -1689,23 +1689,33 @@
 
 
 <h1 id="_1">发布<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>文件发布</strong>： 各环节文件规范自检、错误修复、标准化统一提交的过程。</p>
 <pre class="mermaid"><code>flowchart LR
 
 subgraph work_[工程文件]
     work[工作文件]
-    check(文件检查)
 end
 
+subgraph publish[发布]
+    check(文件检查)
+    pub[发布]
+end
 
-publish[发布文件]
+check -.-&gt; pub
 
-work -.-&gt; check --&gt; publish
+
+pub_file[发布文件]
+
+work_ --&gt; publish --&gt; pub_file
 </code></pre>
-<p><strong>文件发布</strong>： 各环节文件规范自检、错误修复、标准化统一提交的过程。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>各个环节发布都遵循此基础框架结构。</p>
+</div>
 <h2 id="_2">工作文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">工程文件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>各环节的制作文件， 在maya端通常指maya的一个标准工程， 这样便于存放各自环节的使用到的资源、素材等。</p>
-<p>例如：一个资产的每个任务环节可以是一个独立的工程，模型、材质、绑定、毛发等可以是各自独立的工程。</p>
+<p>各环节的制作文件， 在maya端通常指maya的一个 <strong>标准工程</strong>， 这样当前工程需要的贴图素材等都在当前工程目录下。</p>
+<p>例如：一个资产的每个 <strong>任务环节</strong> 可以是一个独立的工程，模型、材质、绑定、毛发等可以是各自独立的工程。</p>
 <p><img alt="work_file_00" src="../img/work_file_00.png" /></p>
 <h2 id="_4">检查<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">检查界面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
