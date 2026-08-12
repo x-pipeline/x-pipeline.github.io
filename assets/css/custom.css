@@ -25,3 +25,18 @@ a.boxedThumb:hover {
   transform: scale(1.05);
   z-index: 5;
 }
+
+/* 底部信息栏背景色：跟随 primary 主题，亮色模式下为白色 */
+/* 亮色模式：footer 白底深字 */
+[data-md-color-scheme="default"] .md-footer-meta {
+  background-color: #ffffff;
+}
+[data-md-color-scheme="default"] .md-footer-meta,
+[data-md-color-scheme="default"] .md-footer-meta .md-copyright,
+[data-md-color-scheme="default"] .md-footer-meta .md-copyright__highlight,
+[data-md-color-scheme="default"] .md-footer-meta a {
+  color: #000000;
+}
+[data-md-color-scheme="default"] .md-footer-meta .md-social__link svg {
+  fill: currentColor;
+}
