@@ -78,18 +78,56 @@
 (function () {
   var HASH = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92";
   var KEY = "__site_auth";
-  function deny() {
-    document.documentElement.innerHTML = '<body style="display:flex;height:100vh;align-items:center;justify-content:center;font-family:sans-serif;background:#111;color:#999"><p style="text-align:center">密码错误或未输入，请刷新页面重试。<br>联系管理员获取密码。<br>邮箱：xpipeline@163.com<br>微信：yxc10068</p></body>';
-    throw new Error("auth failed");
-  }
   if (sessionStorage.getItem(KEY) === HASH) return; // 本次会话已解锁
-  var pw = prompt("本站已加密，请输入访问密码");
-  if (pw === null) deny();
-  crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw)).then(function (buf) {
-    var hex = [...new Uint8Array(buf)].map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
-    if (hex === HASH) sessionStorage.setItem(KEY, HASH);
-    else deny();
-  });
+
+  // 隐藏页面内容，避免密码弹窗出现前内容闪现
+  document.documentElement.style.visibility = "hidden";
+
+  function verify(pw, ok, fail) {
+    crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw)).then(function (buf) {
+      var hex = [...new Uint8Array(buf)].map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+      hex === HASH ? ok() : fail();
+    });
+  }
+
+  function build() {
+    var overlay = document.createElement("div");
+    overlay.style.cssText = "position:fixed;inset:0;z-index:99999;background:#111;display:flex;align-items:center;justify-content:center;font-family:sans-serif;visibility:visible";
+    overlay.innerHTML = '<div style="background:#1c1c1c;padding:32px 40px;border-radius:10px;text-align:center;color:#999;box-shadow:0 6px 24px rgba(0,0,0,.6)">'
+      + '<p style="margin:0 0 14px;color:#ccc">本站已加密，请输入访问密码</p>'
+      + '<input id="__pw_input" type="password" placeholder="访问密码" style="width:210px;padding:8px 10px;border:1px solid #444;border-radius:4px;background:#111;color:#eee;font-size:14px;outline:none">'
+      + '<button id="__pw_btn" style="margin-left:8px;padding:8px 18px;border:none;border-radius:4px;background:#4a6fa5;color:#fff;cursor:pointer;font-size:14px">确定</button>'
+      + '<p id="__pw_err" style="margin:10px 0 0;color:#e06c6c;font-size:13px;min-height:18px"></p>'
+      + '<p style="margin:8px 0 0;font-size:12px;color:#666">联系管理员获取密码。<br>邮箱：xpipeline@163.com<br>微信：yxc10068</p>'
+      + '</div>';
+    document.body.appendChild(overlay);
+
+    var input = overlay.querySelector("#__pw_input");
+    var btn = overlay.querySelector("#__pw_btn");
+    var err = overlay.querySelector("#__pw_err");
+
+    function submit() {
+      if (!input.value) { err.textContent = "请输入密码"; input.focus(); return; }
+      btn.disabled = true;
+      verify(input.value, function () {
+        sessionStorage.setItem(KEY, HASH);
+        document.documentElement.style.visibility = "";
+        overlay.remove();
+      }, function () {
+        err.textContent = "密码错误，请重试";
+        input.value = "";
+        btn.disabled = false;
+        input.focus();
+      });
+    }
+
+    btn.addEventListener("click", submit);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+    input.focus();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", build);
+  else build();
 })();
 </script>
 </head>
