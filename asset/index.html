@@ -71,7 +71,26 @@
 
     
     
-  </head>
+  <script>
+// 页面密码访问（更换密码见 hooks/password.py）
+(function () {
+  var HASH = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92";
+  var KEY = "__site_auth";
+  function deny() {
+    document.documentElement.innerHTML = '<body style="display:flex;height:100vh;align-items:center;justify-content:center;font-family:sans-serif;background:#111;color:#999"><p>密码错误或未输入，请刷新页面重试</p></body>';
+    throw new Error("auth failed");
+  }
+  if (sessionStorage.getItem(KEY) === HASH) return; // 本次会话已解锁
+  var pw = prompt("本站已加密，请输入访问密码");
+  if (pw === null) deny();
+  crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw)).then(function (buf) {
+    var hex = [...new Uint8Array(buf)].map(function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+    if (hex === HASH) sessionStorage.setItem(KEY, HASH);
+    else deny();
+  });
+})();
+</script>
+</head>
   
   
     
