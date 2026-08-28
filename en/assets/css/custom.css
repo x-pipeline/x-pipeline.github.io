@@ -1,0 +1,42 @@
+/* custom.css */
+a.boxedThumb {
+  /*display: block;*/
+  padding: 4px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -webkit-transition: -webkit-transform .15s ease;
+  -moz-transition: -moz-transform .15s ease;
+  -o-transition: -o-transform .15s ease;
+  -ms-transition: -ms-transform .15s ease;
+  transition: transform .15s ease;
+}
+
+a.boxedThumb:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  z-index: 5;
+}
+
+/* 底部信息栏背景色：跟随 primary 主题，亮色模式下为白色 */
+/* 亮色模式：footer 白底深字 */
+[data-md-color-scheme="default"] .md-footer-meta {
+  background-color: #ffffff;
+}
+[data-md-color-scheme="default"] .md-footer-meta,
+[data-md-color-scheme="default"] .md-footer-meta .md-copyright,
+[data-md-color-scheme="default"] .md-footer-meta .md-copyright__highlight,
+[data-md-color-scheme="default"] .md-footer-meta a {
+  color: #000000;
+}
+[data-md-color-scheme="default"] .md-footer-meta .md-social__link svg {
+  fill: currentColor;
+}
