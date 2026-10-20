@@ -640,12 +640,12 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 打开组装文件
+        3. 打开查看组装文件
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. 打开组装文件">
+    <nav class="md-nav" aria-label="3. 打开查看组装文件">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1742,12 +1742,12 @@
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 打开组装文件
+        3. 打开查看组装文件
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. 打开组装文件">
+    <nav class="md-nav" aria-label="3. 打开查看组装文件">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1887,27 +1887,33 @@ end
 ani --&gt; asb --&gt; fx
 </code></pre>
 <h3 id="1">1. 动画发布<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>使用动画<a href="../publish/index.html">发布工具</a>，提交动画文件、拍屏等</p>
+<p>使用动画<a href="../publish/index.html">发布工具</a>，提交动画文件</p>
 <details>
 <summary>查看操作</summary>
 <p><img src="../img/xp_01_ani_publish-1.gif" style="zoom:150%;" /></p>
 </details>
 <h3 id="2">2. 组装下游文件<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>桌面端<a href="../user_manual.html">流程管理</a>主程序， 用于管理资产、镜头任务、上下游文件等。</p>
+<p>桌面端<a href="../user_manual.html"><strong>流程管理</strong></a>主程序， 主要用于批量化管理资产、镜头、上下游文件等。<strong>镜头文件组装</strong> 是主要的核心功能，通常上下游环节文件交互如果没有批量集成化的工具，需要制作人员很多手动导入、导出、合并文件等操作，费事费力、且容易出错，<strong>流程管理</strong> 就是为了解决这类问题，它可以集中、批量化处理镜头文件，其他频繁手动、机械化的操作也很容易通过自定义的方式集成进来。</p>
+<p>镜头组装主要实现了以下自动化:</p>
 <ol>
-<li>导出动画镜头数据：相机、角色、场景等缓存(alembic、usd等)</li>
+<li>
+<p>导出动画镜头数据：相机、角色、场景等缓存(alembic、usd等)</p>
+</li>
 <li>
 <p>生成构建下游环节文件，灯光、解算等</p>
 <blockquote>
 <p>a. 自动加载材质、毛发文件等合并生成渲染文件</p>
 </blockquote>
 </li>
+<li>
+<p>生成渲染测试视频（和动画拍屏对比用于自检）</p>
+</li>
 </ol>
 <details>
 <summary>查看操作</summary>
 <p><img src="../img/xp_02_asb-1.gif" style="zoom:150%;" /></p>
 </details>
-<h3 id="3">3. 打开组装文件<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h3 id="3">3. 打开查看组装文件<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <h4 id="31-3d-viewusdview">3.1 3D view（usdview集成）<a class="headerlink" href="#31-3d-viewusdview" title="Permanent link">&para;</a></h4>
 <details>
 <summary>查看操作</summary>
