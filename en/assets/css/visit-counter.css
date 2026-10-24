@@ -1,0 +1,26 @@
+.visit-counter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  opacity: 0.8;
+}
+
+.visit-counter__item {
+  white-space: nowrap;
+}
+
+.visit-counter__value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 44.984375em) {
+  .visit-counter {
+    gap: 0.15rem 0.9rem;
+  }
+}
