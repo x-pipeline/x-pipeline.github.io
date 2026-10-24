@@ -52,7 +52,7 @@
     window.setTimeout(function () {
       var sitePv = document.getElementById("busuanzi_value_site_pv");
       if (sitePv && !sitePv.textContent.trim()) counter.remove();
-    }, 10000);
+    }, 60000);
   }
 
   if (document.readyState === "loading") {
