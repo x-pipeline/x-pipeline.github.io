@@ -13,10 +13,10 @@
         times: ""
       }
     : {
-        sitePv: "本站总访问量",
-        siteUv: "本站访客数",
-        pagePv: "本页阅读量",
-        times: "次"
+        sitePv: "a",
+        siteUv: "b",
+        pagePv: "c",
+        times: " "
       };
 
   function stat(key, label) {
